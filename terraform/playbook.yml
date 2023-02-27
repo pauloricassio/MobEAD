@@ -1,0 +1,17 @@
+---
+- name: Instalação do IIS na instância EC2 com Windows Server 2019
+  hosts: Servidores
+  gather_facts: false
+  vars:
+    ansible_connection: winrm
+    ansible_winrm_transport: basic
+    ansible_winrm_server_cert_validation: ignore
+    ansible_user: Administrator
+    ansible_password: "*W;;.vA3A)GZJ3xMHWnB($=y4!hCFaUi"
+    ansible_port: 5985
+  tasks:
+    - name: Instalação do IIS
+      win_feature:
+        name: Web-Server
+        state: present
+  
